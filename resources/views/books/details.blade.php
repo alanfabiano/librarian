@@ -11,6 +11,7 @@
 	<h1>Livro: <em>{{ $book->title }}</em></h1>
 
 	<p><strong>Autor:</strong> <em>{{ $book->authors['name'] }}</em></p>
+	<p><strong>Categoria:</strong> <em>{{ $book->category['name'] }}</em></p>
 
 	<div class="row">
 		<div class="col-sm-3">

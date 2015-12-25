@@ -25,11 +25,15 @@ class Books extends Model implements SluggableInterface
     	'active',
         'book_cover',
         'author_id'
-    ];
+    ];    
 
     public function authors()
     {
-        return $this->hasOne('App\Authors','id');
+        return $this->belongsTo('App\Authors','author_id','id');
     }    
 
+    public function category()
+    {
+        return $this->belongsTo('App\Category','category_id','id');
+    }
 }

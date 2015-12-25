@@ -16,14 +16,12 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'livros'],function(){
+
 	Route::get('', ['as' => 'books.index', 'uses' => 'BooksController@index']);
-
-	Route::get('page/{page}', ['as' => 'books.index', 'uses' => 'BooksController@index']);
-
-
+	Route::get('categoria/{categoria}', ['as' => 'books.index', 'uses' => 'BooksController@category']);
 	Route::get('{slug}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
-
 	Route::post('search', ['as' => 'books.search', 'uses' => 'BooksController@search']);
+	
 });
 
 Route::group(['prefix' => 'autores'], function(){

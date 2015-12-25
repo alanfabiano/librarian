@@ -22,4 +22,9 @@ class AuthorsController extends Controller
         $authors = Authors::findBySlug($slug);
         return view('authors.profile', compact('authors'));
     }
+
+    public function search()
+    {
+        
+    }
 }

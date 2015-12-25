@@ -33,3 +33,15 @@ h2{
 .pagination > li > a, .pagination > li > span{
 	color: #EB5A46;
 }
+
+.categorias_livros{
+	margin:0px;
+	padding:0px;
+}
+.categorias_livros li{
+	list-style:none;
+}
+.categorias_livros li a{
+	color:#333;
+	font-size:16px;
+}

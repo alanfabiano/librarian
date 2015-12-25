@@ -37,3 +37,10 @@ $factory->define(App\Books::class, function (Faker\Generator $faker) {
         'book_cover' => $faker->imageUrl(260, 330, 'city', true, 'Faker')
     ];
 });
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'active' => $faker->boolean
+    ];
+});

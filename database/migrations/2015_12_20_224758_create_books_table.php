@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('book_cover');
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('authors');
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
     }
