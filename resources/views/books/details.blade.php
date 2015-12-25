@@ -10,7 +10,7 @@
 
 	<h1>Livro: <em>{{ $book->title }}</em></h1>
 
-	<p><strong>Autor:</strong> <em>{{ $book->authors['name'] }}</em></p>
+	<p><strong>Autor:</strong> <em><a class="lnk-green" href="{{ url('autores/'.$book->authors['slug']) }}">{{ $book->authors['name'] }}</a></em></p>
 	<p><strong>Categoria:</strong> <em>{{ $book->category['name'] }}</em></p>
 
 	<div class="row">

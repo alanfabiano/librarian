@@ -7,7 +7,9 @@
 	<title>Laravel</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
+	<link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/flags.css') }}" rel="stylesheet">
+	
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -31,25 +33,34 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Library</a>
+				<a class="navbar-brand" href="#">Librarian</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<li><a href="{{ url('/autores') }}">Autores</a></li>
-					<li><a href="{{ url('/livros') }}">Livros</a></li>
+					<li><a href="{{ url('/') }}">{{ trans('messages.menu.home') }}</a></li>
+					<li><a href="{{ url('/autores') }}">{{ trans('messages.menu.autores') }}</a></li>
+					<li><a href="{{ url('/livros') }}">{{ trans('messages.menu.livros') }}</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('messages.idioma.sigla') }}"></i>{{ trans('messages.idioma.nome') }} <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href=""><i class="flag br"></i>{{ trans('messages.idiomas.br') }}</a></li>
+							<li><a href=""><i class="flag us"></i>{{ trans('messages.idiomas.en') }}</a></li>
+						</ul>
+					</li>
+
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
+						<li><a href="{{ url('/auth/login') }}">{{ trans('messages.menu.login') }}</a></li>
+						<li><a href="{{ url('/auth/register') }}">{{ trans('messages.menu.cadastro') }}</a></li>
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+								<li><a href="{{ url('/auth/logout') }}">{{ trans('messages.menu.logout') }}</a></li>
 							</ul>
 						</li>
 					@endif
@@ -61,10 +72,9 @@
 		@yield('content')
 	</div>
 
-
-
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>

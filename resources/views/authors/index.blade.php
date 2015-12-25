@@ -24,6 +24,6 @@
 		@endforeach
 	</div>
 
-	<p class="text-center">{!! $authors->render() !!}</p>
+	<div class="text-center">{!! $authors->render() !!}</div>
 
 @endsection

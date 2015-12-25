@@ -14,6 +14,6 @@ class AuthorsTableSeeder extends Seeder
     public function run()
     {
         Authors::truncate();
-        $posts = factory('App\Authors', 15)->create();
+        $posts = factory('App\Authors', 30)->create();
     }
 }

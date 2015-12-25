@@ -26,10 +26,10 @@ class BooksController extends Controller
 
     public function category($slug)
     {
-        $category   = Category::findBySlug($slug);
-        $books      = Books::where('category_id','=',$category->id)->paginate(12);
+        $Category   = Category::findBySlug($slug);
+        $books      = Books::where('category_id','=',$Category->id)->paginate(12);
         $categories = Category::all();
 
-        return view('books.categories', compact('books','categories'));
+        return view('books.categories', compact('books','Category','categories'));
     }
 }

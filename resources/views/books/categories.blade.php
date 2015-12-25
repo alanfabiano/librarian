@@ -10,7 +10,7 @@
 	<div class="row">
 
 		<div class="col-sm-9">	
-			<h1>Livros</h1>
+			<h1>Livros<br /><small>Categoria: {{ $Category->name }}</small></h1>
 			<div class="row">
 				@foreach($books as $count => $book)
 
@@ -21,7 +21,7 @@
 
 					<div class="col-sm-3">
 						<p><strong><a class="lnk" href="{{ url('livros/'.$book->slug) }}">{{ $book->title }}</a></strong></p>
-						<p><em>{{ $book->authors['name'] }}</em></p>
+						<p><em><a class="lnk-green" href="{{ url('autores/'.$book->authors['slug']) }}">{{ $book->authors['name'] }}</a></em></p>
 						<p>
 							<a href="{{ url('livros/'.$book->slug) }}">
 								<img class="col-sm-6" style="width:50%" src="{{ $book->book_cover }}" title="{{ $book->title }}">

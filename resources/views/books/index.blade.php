@@ -21,7 +21,7 @@
 
 					<div class="col-sm-3">
 						<p><strong><a class="lnk" href="{{ url('livros/'.$book->slug) }}">{{ $book->title }}</a></strong></p>
-						<p><em>{{ $book->authors['name'] }}</em></p>
+						<p><em><a class="lnk-green" href="{{ url('autores/'.$book->authors['slug']) }}">{{ $book->authors['name'] }}</em></p>
 						<p>
 							<a href="{{ url('livros/'.$book->slug) }}">
 								<img class="col-sm-6" style="width:50%" src="{{ $book->book_cover }}" title="{{ $book->title }}">
