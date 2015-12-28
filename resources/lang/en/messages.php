@@ -1,15 +1,15 @@
 <?php
 
 return [
-    'welcome' => 'Welcome to our application',
 
     'menu' => [
-    	'home'     => 'Home',
-    	'autores'  => 'Authors',
-    	'livros'   => 'Books',
-        'cadastro' => 'Register',
-        'login'    => 'Login',
-        'logout'   => 'Logout'
+    	'home'       => 'Home',
+    	'autores'    => 'Authors',
+    	'livros'     => 'Books',
+        'categorias' => 'Categories',
+        'cadastro'   => 'Register',
+        'login'      => 'Login',
+        'logout'     => 'Logout'
     ],
     'idioma' => [
     	'nome'  => 'English',
@@ -17,6 +17,7 @@ return [
     ],
     'idiomas' => [
     	'en'  => 'English',
+        'es'  => 'Spanish',
     	'br'  => 'Portuguese'
     ]
     

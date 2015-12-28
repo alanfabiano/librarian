@@ -34,6 +34,8 @@ class Books extends Model implements SluggableInterface
 
     public function category()
     {
-        return $this->belongsTo('App\Category','category_id','id');
+        return $this->belongsTo('App\Category');
     }
+
+    
 }

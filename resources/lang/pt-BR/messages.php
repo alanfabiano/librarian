@@ -3,12 +3,13 @@
 return [
 
     'menu' => [
-    	'home'     => 'Home',
-    	'autores'  => 'Autores',
-    	'livros'   => 'Livros',
-    	'registro' => 'Cadastro',
-    	'login'    => 'Entrar',
-    	'logout'   => 'Sair'
+    	'home'       => 'Home',
+    	'autores'    => 'Autores',
+    	'livros'     => 'Livros',
+        'categorias' => 'Categorias',
+    	'cadastro'   => 'Cadastro',
+    	'login'      => 'Entrar',
+    	'logout'     => 'Sair'
     ],
     'idioma' => [
     	'nome'  => 'Português',
@@ -16,6 +17,7 @@ return [
     ],
     'idiomas' => [
     	'en'  => 'Englês',
+        'es'  => 'Espanhol',
     	'br'  => 'Português'
     ]
     

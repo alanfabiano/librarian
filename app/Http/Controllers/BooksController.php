@@ -30,6 +30,12 @@ class BooksController extends Controller
         $books      = Books::where('category_id','=',$Category->id)->paginate(12);
         $categories = Category::all();
 
-        return view('books.categories', compact('books','Category','categories'));
+        return view('books.category', compact('books','Category','categories'));
+    }
+
+    public function categories()
+    {
+        $Categories = Category::all();
+        return view('books.categories', compact('Categories'));
     }
 }

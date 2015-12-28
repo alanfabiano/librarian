@@ -17,8 +17,8 @@
 			@endif
 			<div class="col-sm-2">
 				<div class="thumbnail">
-					<p><a href="{{ url('autores/'.$author->slug) }}"><img style="width:100%" src="{{ $author->photo }}" title="{{ $author->name }}"></a></p>
-					<p><strong><a class="lnk" href="{{ url('autores/'.$author->slug) }}">{{ $author->name }}</a></strong></p>
+					<p><a href="{{ route('authors.show',['slug' => $author->slug]) }}"><img style="width:100%" src="{{ $author->photo }}" title="{{ $author->name }}"></a></p>
+					<p><strong><a class="lnk" href="{{ route('authors.show',['slug' => $author->slug]) }}">{{ $author->name }}</a></strong></p>
 				</div>
 			</div>
 		@endforeach

@@ -24,4 +24,10 @@ class Category extends Model implements SluggableInterface
     	'parent_id',
     	'status'
     ];
+
+    public function books()
+    {
+        return $this->hasMany('App\Books','category_id','id');
+    }
+
 }

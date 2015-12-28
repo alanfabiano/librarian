@@ -38,9 +38,10 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">{{ trans('messages.menu.home') }}</a></li>
-					<li><a href="{{ url('/autores') }}">{{ trans('messages.menu.autores') }}</a></li>
-					<li><a href="{{ url('/livros') }}">{{ trans('messages.menu.livros') }}</a></li>
+					<li><a href="{{ route('index') }}">{{ trans('messages.menu.home') }}</a></li>
+					<li><a href="{{ route('authors.index') }}">{{ trans('messages.menu.autores') }}</a></li>
+					<li><a href="{{ route('books.index') }}">{{ trans('messages.menu.livros') }}</a></li>
+					<li><a href="{{ route('books.categorias') }}">{{ trans('messages.menu.categorias') }}</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -48,8 +49,9 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('messages.idioma.sigla') }}"></i>{{ trans('messages.idioma.nome') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href=""><i class="flag br"></i>{{ trans('messages.idiomas.br') }}</a></li>
-							<li><a href=""><i class="flag us"></i>{{ trans('messages.idiomas.en') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'pt-BR']) }}"><i class="flag br"></i>{{ trans('messages.idiomas.br') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'es']) }}"><i class="flag es"></i>{{ trans('messages.idiomas.es') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'en']) }}"><i class="flag us"></i>{{ trans('messages.idiomas.en') }}</a></li>
 						</ul>
 					</li>
 
