@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1>Biblioteca Virtual</h1>
+	<h1>{{ trans('messages.home.h1') }}</h1>
 
 
 @endsection

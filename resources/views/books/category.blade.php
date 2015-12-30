@@ -10,7 +10,7 @@
 	<div class="row">
 
 		<div class="col-sm-9">	
-			<h1>Livros<br /><small>Categoria: {{ $Category->name }}</small></h1>
+			<h1>{{ trans('messages.livros_categoria.titulo') }}<br /><small>{{ trans('messages.livros_categoria.categoria') }}: {{ $Category->name }}</small></h1>
 			<div class="row">
 				@foreach($books as $count => $book)
 
@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="col-sm-3">
-			<h2>Categorias</h2>
+			<h2>{{ trans('messages.livros_categoria.categorias') }}</h2>
 			<ul class="categorias_livros">
 				@foreach($categories as $category)
 					<li><a href="{{ url('livros/categoria/'.$category->slug) }}">{{ $category->name }}</a></li>

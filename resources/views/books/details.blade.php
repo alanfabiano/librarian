@@ -8,10 +8,10 @@
 
 @section('content')
 
-	<h1>Livro: <em>{{ $book->title }}</em></h1>
+	<h1>{{ trans('messages.livros_detalhes.titulo') }}: <em>{{ $book->title }}</em></h1>
 
-	<p><strong>Autor:</strong> <em><a class="lnk-green" href="{{ route('authors.show', ['slug' => $book->authors['slug']]) }}">{{ $book->authors['name'] }}</a></em></p>
-	<p><strong>Categoria:</strong> <em><a class="lnk-purple" href="{{ route('books.categoria', ['categorias' => $book->category['slug']]) }}">
+	<p><strong>{{ trans('messages.livros_detalhes.autor') }}:</strong> <em><a class="lnk-green" href="{{ route('authors.show', ['slug' => $book->authors['slug']]) }}">{{ $book->authors['name'] }}</a></em></p>
+	<p><strong>{{ trans('messages.livros_detalhes.categoria') }}:</strong> <em><a class="lnk-purple" href="{{ route('books.categoria', ['categorias' => $book->category['slug']]) }}">
 	{{ $book->category['name'] }}</a></em></p>
 
 	<div class="row">

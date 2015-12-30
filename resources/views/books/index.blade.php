@@ -10,7 +10,7 @@
 	<div class="row">
 
 		<div class="col-sm-9">	
-			<h1>Livros</h1>
+			<h1>{{ trans('messages.livros.titulo') }}</h1>
 			<div class="row">
 				@foreach($books as $count => $book)
 
@@ -35,7 +35,7 @@
 		</div>
 
 		<div class="col-sm-3">
-			<h2>Categorias</h2>
+			<h2>{{ trans('messages.livros.categorias') }}</h2>
 			<ul class="categorias_livros">
 				@foreach($categories as $category)
 					<li><a href="{{ route('books.categorias',['categoria' => $category->slug]) }}">{{ $category->name }}</a></li>

@@ -8,7 +8,7 @@
 
 @section('content')
 
-	<h1>Autores</h1>
+	<h1>{{ trans('messages.autores.titulo') }}</h1>
 
 	<div class="row">
 		@foreach($authors as $count => $author)

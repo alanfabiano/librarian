@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Session;
+use URL;
 
 class SetLanguage
 {
@@ -22,7 +23,7 @@ class SetLanguage
         {
             Session::put('locale', $request->route()->locale);
         }
-        return redirect('/');
+        return redirect(URL::previous());
     }
 
 }

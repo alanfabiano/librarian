@@ -6,11 +6,11 @@
 
 @section('content')
 
-	<h1>Autor: <em>{{ $authors->name }}</em></h1>
+	<h1>{{ trans('messages.autores_perfil.titulo') }}: <em>{{ $authors->name }}</em></h1>
 
 	<p>{{ $authors->biography }}</p>
 
-	<h2>Obras do Autor:</h2>
+	<h2>{{ trans('messages.autores_perfil.livros') }}:</h2>
 	<div class="row">
 		@foreach($authors->books as $count => $book)
 			@if($count%6==0)
