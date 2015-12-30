@@ -4,7 +4,7 @@ return [
 
     'menu' => [
         'home'       => 'Home',
-        'autores'    => 'Authors',
+        'autores'    => 'Autores',
         'livros'     => 'Libros',
         'categorias' => 'Categorías',
         'cadastro'   => 'Cadastro',

@@ -20,14 +20,13 @@
 					@endif
 
 					<div class="col-sm-3">
-						<p><strong><a class="lnk" href="{{ route('books.show',['slug' => $book->slug]) }}">{{ $book->title }}</a></strong></p>
-						<p><em><a class="lnk-green" href="{{ route('books.show', ['slug' => $book->slug]) }}">{{ $book->authors['name'] }}</em></p>
-						<p>
+						<p class="text-center">
 							<a href="{{ route('books.show', ['slug' => $book->slug]) }}">
-								<img class="col-sm-6" style="width:50%" src="{{ $book->book_cover }}" title="{{ $book->title }}">
+								<img style="width:50%" src="{{ $book->book_cover }}" title="{{ $book->title }}" />
 							</a>
-							<p>{{ substr(strip_tags($book->resume),0,180) }}</p>
 						</p>
+						<p class="text-center"><strong><a class="lnk" href="{{ route('books.show',['slug' => $book->slug]) }}">{{ $book->title }}</a></strong></p>
+						<p class="text-center"><em><a class="lnk-green" href="{{ route('books.show', ['slug' => $book->slug]) }}">{{ $book->authors['name'] }}</a></em></p>
 					</div>
 				@endforeach
 			</div>
