@@ -20,8 +20,14 @@ class BooksController extends Controller
 
     public function show($slug)
     {
-        $book = Books::findBySlug($slug);
-        return view('books.details', compact('book'));
+      $book = Books::findBySlug($slug);
+      return view('books.details', compact('book'));
+    }
+
+    public function edit($id)
+    {
+      $book = Books::find($id);
+      return view('books.edit', compact('book'));
     }
 
     public function category($slug)
