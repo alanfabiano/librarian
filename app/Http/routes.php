@@ -11,9 +11,9 @@
 |,
 */
 
-Route::get('setLocale/{locale}',['as' => 'set.locale', 'middleware' => 'SetLanguage']);
-
-
+Route::get('setLocale/{locale}',['as' => 'set.locale', 'middleware' => 'SetLanguage', function ($locale) {
+    // SET LOCALE
+}]);
 
 
 Route::get('', ['as' => 'index', 'uses' => function(){
