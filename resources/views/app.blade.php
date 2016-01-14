@@ -41,7 +41,7 @@
 					<li><a href="{{ route('index') }}">{{ trans('messages.menu.home') }}</a></li>
 					<li><a href="{{ route('authors.index') }}">{{ trans('messages.menu.autores') }}</a></li>
 					<li><a href="{{ route('books.index') }}">{{ trans('messages.menu.livros') }}</a></li>
-					<li><a href="{{ route('books.categorias') }}">{{ trans('messages.menu.categorias') }}</a></li>
+					<li><a href="{{ route('books.categories') }}">{{ trans('messages.menu.categorias') }}</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

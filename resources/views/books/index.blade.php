@@ -9,7 +9,7 @@
 @section('content')
 	<div class="row">
 
-		<div class="col-sm-9">	
+		<div class="col-sm-9">
 			<h1>{{ trans('messages.livros.titulo') }}</h1>
 			<div class="row">
 				@foreach($books as $count => $book)
@@ -37,7 +37,7 @@
 			<h2>{{ trans('messages.livros.categorias') }}</h2>
 			<ul class="categorias_livros">
 				@foreach($categories as $category)
-					<li><a href="{{ route('books.categorias',['categoria' => $category->slug]) }}">{{ $category->name }}</a></li>
+					<li><a href="{{ route('books.categories',['categoria' => $category->slug]) }}">{{ $category->name }}</a></li>
 				@endforeach
 			</ul>
 		</div>
