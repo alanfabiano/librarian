@@ -15,7 +15,7 @@
 				<ul>
 					@foreach($Categories as $category)
 						<li>
-							<a class="lnk-purple" href="{{ route('books.category', ['categoria' => $category->slug]) }}">{{ $category->name }}</a> <small>({{ count($category->books) }})</small>
+							<a class="lnk-purple" href="{{ route('books.category', ['categoria' => $category->slug]) }}">{{ $category->name }}</a> <small>({{ $category->CountBooks() }})</small>
 						</li>
 					@endforeach
 				</ul>

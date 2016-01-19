@@ -25,9 +25,9 @@ class Category extends Model implements SluggableInterface
     	'status'
     ];
 
-    public function books()
+    public function CountBooks()
     {
-        return $this->hasMany('App\Books','category_id','id');
+        return $this->hasMany('App\Books','category_id','id')->count();
     }
 
 }

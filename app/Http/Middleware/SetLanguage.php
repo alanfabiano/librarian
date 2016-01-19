@@ -23,7 +23,7 @@ class SetLanguage
         {
             Session::put('locale', $request->route()->locale);
         }
-        dd($request->route()->locale);
+        
         return redirect(URL::previous());
     }
 
