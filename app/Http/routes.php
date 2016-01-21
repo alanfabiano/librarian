@@ -22,13 +22,6 @@ Route::get('', ['as' => 'index', 'uses' => function(){
 
 Route::group(['prefix' => 'books'],function(){
 	Route::get('', ['as' => 'books.index', 'uses' => 'BooksController@index']);
-	// Books CRUD
-	Route::get('create', ['as' => 'books.create', 'uses' => 'BooksController@create']);
-	Route::post('save', ['as' => 'books.save', 'uses' => 'BooksController@save']);
-	Route::get('{id}/edit', ['as' => 'books.edit', 'uses' => 'BooksController@edit']);
-	Route::put('update', ['as' => 'books.update', 'uses' => 'BooksController@update']);
-	// End Books CRUD
-
 	Route::get('category/{category}', ['as' => 'books.category', 'uses' => 'BooksController@category']);
 	Route::get('categories', ['as' => 'books.categories', 'uses' => 'BooksController@categories']);
 	Route::get('{slug}', ['as' => 'books.show', 'uses' => 'BooksController@show']);
@@ -42,7 +35,7 @@ Route::group(['prefix' => 'authors'], function(){
 
 
 Route::group(['prefix' => 'admin'], function(){
-	
+
 
 	Route::resource('books', 'AdminBookController', ['names' => [
     	'create'  => 'admin.books.create',
@@ -53,4 +46,3 @@ Route::group(['prefix' => 'admin'], function(){
     ]]);
 
 });
-
