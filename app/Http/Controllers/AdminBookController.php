@@ -34,12 +34,20 @@ class AdminBookController extends Controller
 
     public function edit($id)
     {
-        return 'edit';
+        return 'formulário de edição';
     }
 
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        if($request->type == 'status')
+        {
+            $books = Books::find($id);
+            $active = $books->active == true ? false : true;
+            $books->update(['active' => $active]);
+            
+            return response()->json(['active' => $active]);
+        }
+
     }
 
     public function destroy($id)
