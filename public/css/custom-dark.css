@@ -1,0 +1,51 @@
+.navbar-default{
+	background-color:#333;
+	border-color:#333;
+	border-radius:0px;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#FFF;
+	font-size:15px;
+}
+.navbar-default .navbar-nav > li > a:hover{
+	color:#CCC;
+}
+
+.navbar-default .navbar-brand{
+	font-size:24px;
+	color:#FFF;
+	font-weight:bold;
+	border-right:solid 2px #FFF;
+}
+
+h1{
+	color:#B04632;
+}
+h2{
+	color:#963C2B;
+}
+
+.lnk{
+	color:#B04632;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+	background-color: #333;
+    border-color: #333;
+}
+
+.pagination > li > a, .pagination > li > span{
+	color: #EB5A46;
+}
+
+.categorias_livros{
+	margin:0px;
+	padding:0px;
+}
+.categorias_livros li{
+	list-style:none;
+}
+.categorias_livros li a{
+	color:#333;
+	font-size:16px;
+}

@@ -1,14 +1,10 @@
 @extends('app')
-
-
-@section('head')
-	<link href="{{ asset('/css/custom-green.css') }}" rel="stylesheet">
+@section('head_tags')
+	<title>Librarian</title>
 @endsection
-
-
 @section('content')
 
-	<h1>{{ trans('messages.autores.titulo') }}</h1>
+	<h1>{{ trans('models.authors') }}</h1>
 
 	<div class="row">
 		@foreach($authors as $count => $author)

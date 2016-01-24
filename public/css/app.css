@@ -39,10 +39,12 @@ template {
 }
 a {
   background-color: transparent;
+  outline:0!important;
 }
 a:active,
 a:hover {
   outline: 0;
+  outline:0!important;
 }
 abbr[title] {
   border-bottom: 1px dotted;

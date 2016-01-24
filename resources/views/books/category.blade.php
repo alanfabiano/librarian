@@ -1,16 +1,12 @@
 @extends('app')
-
-
-@section('head')
-	<link href="{{ asset('/css/custom-red.css') }}" rel="stylesheet">
+@section('head_tags')
+	<title>Librarian</title>
 @endsection
-
-
 @section('content')
 	<div class="row">
 
-		<div class="col-sm-9">	
-			<h1>{{ trans('messages.livros_categoria.titulo') }}<br /><small>{{ trans('messages.livros_categoria.categoria') }}: {{ $Category->name }}</small></h1>
+		<div class="col-sm-9">
+			<h1>{{ trans('models.books') }}<br /><small>{{ trans('models.category') }}: {{ $Category->name }}</small></h1>
 			<div class="row">
 				@foreach($books as $count => $book)
 
@@ -34,10 +30,10 @@
 		</div>
 
 		<div class="col-sm-3">
-			<h2>{{ trans('messages.livros_categoria.categorias') }}</h2>
+			<h2>{{ trans('models.categories') }}</h2>
 			<ul class="categorias_livros">
 				@foreach($categories as $category)
-					<li><a href="{{ url('livros/categoria/'.$category->slug) }}">{{ $category->name }}</a></li>
+					<li><a href="{{ url('books/category/'.$category->slug) }}">{{ $category->name }}</a></li>
 				@endforeach
 			</ul>
 		</div>
