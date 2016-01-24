@@ -40,13 +40,13 @@
 
 
 @section('content')
-	
+
 	<h1>{{ trans_choice('webcontrol.book',2) }}</h1>
 
 	<div id="retorno"></div>
 
 	<table class="table table-striped">
-		
+
 		<tr>
 			<th>{{ trans('webcontrol.status') }}</th>
 			<th>{{ trans('webcontrol.id') }}</th>

@@ -1,16 +1,14 @@
 @extends('app')
-
-@section('head')
-	<link href="{{ asset('/css/custom-green.css') }}" rel="stylesheet">
+@section('head_tags')
+	<title>Librarian</title>
 @endsection
-
 @section('content')
 
-	<h1>{{ trans('messages.autores_perfil.titulo') }}: <em>{{ $authors->name }}</em></h1>
+	<h1>{{ trans('models.author') }}: <em>{{ $authors->name }}</em></h1>
 
 	<p>{{ $authors->biography }}</p>
 
-	<h2>{{ trans('messages.autores_perfil.livros') }}:</h2>
+	<h2>{{ trans('models.books') }}:</h2>
 	<div class="row">
 		@foreach($authors->books as $count => $book)
 			@if($count%6==0)

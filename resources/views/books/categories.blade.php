@@ -1,16 +1,10 @@
 @extends('app')
 
-
-@section('head')
-	<link href="{{ asset('/css/custom-purple.css') }}" rel="stylesheet">
-@endsection
-
-
 @section('content')
 
 	<div class="row">
 		<div class="col-sm-12">
-			<h1>{{ trans('messages.livros_categoria.categorias') }}</h1>
+			<h1>{{ trans('models.categories') }}</h1>
 			<div class="row">
 				<ul>
 					@foreach($Categories as $category)

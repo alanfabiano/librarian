@@ -1,11 +1,7 @@
 @extends('app')
-
-
-@section('head')
-	<link href="{{ asset('/css/custom-red.css') }}" rel="stylesheet">
+@section('head_tags')
+	<title>Librarian</title>
 @endsection
-
-
 @section('content')
 
 	<h1>{{ trans('messages.livros_detalhes.titulo') }}: <em>{{ $book->title }}</em></h1>
