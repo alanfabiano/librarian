@@ -42,7 +42,8 @@ Route::group(['prefix' => 'admin'], function(){
     	'edit'    => 'admin.books.edit',
     	'update'  => 'admin.books.update',
     	'destroy' => 'admin.books.destroy',
-    	'index'   => 'admin.books.index'
+    	'index'   => 'admin.books.index',
+    	'store'   => 'admin.books.store'
     ]]);
 
 });

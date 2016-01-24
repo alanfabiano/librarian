@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Books;
+use App\Authors;
+
 
 class AdminBookController extends Controller
 {
@@ -19,12 +22,18 @@ class AdminBookController extends Controller
 
     public function create()
     {
-        return 'create';
+        $all_authors = Authors::get(['name','id'])->all();
+        array_map(function($author){
+            $this->options[$author->id] = $author->name;
+        },$all_authors);
+        $authors = $this->options;
+
+        return view('admin.books.create', compact('authors'));
     }
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
-        return 'store';
+        return 'done';
     }
 
     public function show($id)
@@ -34,7 +43,8 @@ class AdminBookController extends Controller
 
     public function edit($id)
     {
-        return 'formulário de edição';
+        $book = Books::find($id);
+        return view('admin.books.edit', compact('book'));
     }
 
     public function update(Request $request, $id)
