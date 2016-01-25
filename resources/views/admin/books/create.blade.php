@@ -2,19 +2,19 @@
 
 @section('head')
 	<link href="{{ asset('/css/custom-dark.css') }}" rel="stylesheet">
-	
+
 @endsection
 
 
 @section('content')
-	
+
 	<div class="row">
 
 		<div class="col-sm-12">
-			<h1>{{ trans('messages.livros.titulo') }}</h1>
+			<h1>{{ trans('models.books') }}</h1>
 
-			
-			
+
+
 			<div class="row">
 				<div class="col-sm-12">
 					{!! Form::open([ 'route' => 'admin.books.store', 'method'=>'post' ]) !!}
@@ -25,7 +25,7 @@
 							{!! Form::submit('Salvar Livro', ['class' => 'btn btn-primary'] ) !!}
 						</div>
 
-						
+
 					{!! Form::close() !!}
 				</div>
 			</div>

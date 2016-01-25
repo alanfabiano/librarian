@@ -46,11 +46,11 @@
 				<ul class="nav navbar-nav navbar-right">
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('config.langs.br.abbreviation') }}"></i>{{ trans('config.langs.br.name') }} <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('settings.langs.br.abbreviation') }}"></i>{{ trans('settings.langs.br.name') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ route('set.locale',['locale' => 'pt-BR']) }}"><i class="flag br"></i>{{ trans('config.langs.br.name') }}</a></li>
-							<li><a href="{{ route('set.locale',['locale' => 'es']) }}"><i class="flag es"></i>{{ trans('config.langs.es.name') }}</a></li>
-							<li><a href="{{ route('set.locale',['locale' => 'en']) }}"><i class="flag us"></i>{{ trans('config.langs.en.name') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'pt-BR']) }}"><i class="flag br"></i>{{ trans('settings.langs.br.name') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'es']) }}"><i class="flag es"></i>{{ trans('settings.langs.es.name') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'en']) }}"><i class="flag us"></i>{{ trans('settings.langs.en.name') }}</a></li>
 						</ul>
 					</li>
 

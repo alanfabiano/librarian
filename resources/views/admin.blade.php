@@ -56,22 +56,22 @@
 				<ul class="nav navbar-nav navbar-right">
 
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('messages.idioma.sigla') }}"></i>{{ trans('messages.idioma.nome') }} <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="flag {{ trans('settings.langs.br.abbreviation') }}"></i>{{ trans('settings.langs.br.name') }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ route('set.locale',['locale' => 'pt-BR']) }}"><i class="flag br"></i>{{ trans('messages.idiomas.br') }}</a></li>
-							<li><a href="{{ route('set.locale',['locale' => 'es']) }}"><i class="flag es"></i>{{ trans('messages.idiomas.es') }}</a></li>
-							<li><a href="{{ route('set.locale',['locale' => 'en']) }}"><i class="flag us"></i>{{ trans('messages.idiomas.en') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'pt-BR']) }}"><i class="flag br"></i>{{ trans('settings.langs.br.name') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'es']) }}"><i class="flag es"></i>{{ trans('settings.langs.es.name') }}</a></li>
+							<li><a href="{{ route('set.locale',['locale' => 'en']) }}"><i class="flag us"></i>{{ trans('settings.langs.en.name') }}</a></li>
 						</ul>
 					</li>
 
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">{{ trans('messages.menu.login') }}</a></li>
-						<li><a href="{{ url('/auth/register') }}">{{ trans('messages.menu.cadastro') }}</a></li>
+						<li><a href="{{ url('/auth/login') }}">{{ trans('actions.login') }}</a></li>
+						<li><a href="{{ url('/auth/register') }}">{{ trans('actions.register') }}</a></li>
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">{{ trans('messages.menu.logout') }}</a></li>
+								<li><a href="{{ url('/auth/logout') }}">{{ trans('actions.logout') }}</a></li>
 							</ul>
 						</li>
 					@endif

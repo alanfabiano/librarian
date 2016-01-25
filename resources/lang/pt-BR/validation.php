@@ -100,10 +100,10 @@ return [
     'attributes' => [
       'status'  => 'Status',
       'id'      => 'ID',
-      'option'  => 'Opcão',
+      'option'  => 'Opção',
       'options' => 'Opções',
       'title'   => 'Título',
-      'titles'  => 'Titulos',
+      'titles'  => 'Títulos',
       'slug'    => 'Slug',
     ],
 ];
