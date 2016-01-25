@@ -105,6 +105,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+      'status'  => 'Status',
+      'id'      => 'ID',
+      'option'  => 'Option',
+      'options' => 'Options',
+      'title'   => 'Title',
+      'titles'  => 'Titles',
+      'slug'    => 'Slug',
+    ],
 
 ];

@@ -41,18 +41,18 @@
 
 @section('content')
 
-	<h1>{{ trans_choice('webcontrol.book',2) }}</h1>
+	<h1>{{ trans('models.books') }}</h1>
 
 	<div id="retorno"></div>
 
 	<table class="table table-striped">
 
 		<tr>
-			<th>{{ trans('webcontrol.status') }}</th>
-			<th>{{ trans('webcontrol.id') }}</th>
-			<th>{{ trans_choice('webcontrol.title',1) }}</th>
-			<th>{{ trans('webcontrol.slug') }}</th>
-			<th>{{ trans_choice('webcontrol.option',1) }}</th>
+			<th>{{ trans('validation.attributes.status') }}</th>
+			<th>{{ trans('validation.attributes.id') }}</th>
+			<th>{{ trans('validation.attributes.title') }}</th>
+			<th>{{ trans('validation.attributes.slug') }}</th>
+			<th>{{ trans('validation.attributes.option') }}</th>
 		</tr>
 
 		@foreach($books as $b)
@@ -70,11 +70,11 @@
 				<td>
 					<div class="btn-group">
 						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							{{ trans_choice('webcontrol.action',1) }} <span class="caret"></span>
+							{{ trans('actions.action') }} <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="{{ route('admin.books.edit',['id' => $b->id]) }}">{{ trans('webcontrol.edit') }}</a></li>
-							<li><a class="destroy" data-method="DELETE" href="{{ route('admin.books.destroy', ['id' => $b->id ]) }}">{{ trans('webcontrol.destroy') }}</a></li>
+							<li><a href="{{ route('admin.books.edit',['id' => $b->id]) }}">{{ trans('actions.edit') }}</a></li>
+							<li><a class="destroy" data-method="DELETE" href="{{ route('admin.books.destroy', ['id' => $b->id ]) }}">{{ trans('actions.destroy') }}</a></li>
 						</ul>
 					</div>
 				</td>

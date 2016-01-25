@@ -8,6 +8,5 @@ return [
   'create'  => 'Criar',
   'login'   => 'Entrar',
   'logout'  => 'Sair',
-  'sigup'   => 'Inscrever-se',
-
+  'signup'   => 'Inscrever-se',
 ];
