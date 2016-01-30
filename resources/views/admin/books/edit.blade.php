@@ -40,13 +40,13 @@
 
 
 @section('content')
-	
+
 	<div class="row">
 
 		<div class="col-sm-12">
-			<h1>{{ trans('messages.livros.titulo') }}</h1>
+			<h1>{{ trans('models.books') }}</h1>
 
-			
+
 			<div class="row">
 				<div class="col-sm-12">
 					{!! Form::open(['method'=>'PUT']) !!}
@@ -57,7 +57,7 @@
 							{!! Form::submit('Salvar Livro', ['class' => 'btn btn-primary'] ) !!}
 						</div>
 
-						
+
 					{!! Form::close() !!}
 				</div>
 			</div>
