@@ -9,6 +9,7 @@ use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Books;
 use App\Authors;
+use Session;
 
 
 class AdminBookController extends Controller
@@ -27,13 +28,13 @@ class AdminBookController extends Controller
             $this->options[$author->id] = $author->name;
         },$all_authors);
         $authors = $this->options;
-
+        
         return view('admin.books.create', compact('authors'));
     }
 
     public function store(BookRequest $request)
     {
-        return 'done';
+        
     }
 
     public function show($id)

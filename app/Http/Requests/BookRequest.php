@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Session;
 
 class BookRequest extends Request
 {
@@ -24,7 +25,10 @@ class BookRequest extends Request
     public function rules()
     {
         return [
-            'title'   => 'required|min: 8'
+            'title'      => 'required|min: 8',
+            'resume'     => 'required|min: 8',
+            'book_cover' => 'required|mimes:jpeg,jpg',
+            'author'     => 'required'
         ];
     }
 }
