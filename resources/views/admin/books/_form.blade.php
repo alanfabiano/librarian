@@ -12,13 +12,13 @@
 
 <div class="form-group {{ $errors->first('category','has-error') }}">
 	{!! $errors->first('category','<div class="text-danger pull-right">:message</div>') !!}
-	{!! Form::label('Author', 'Author:') !!}
-	{!! Form::select('author', $authors, null, ['class' => 'form-control', 'placeholder' => 'Selecione um Autor']) !!}
+	{!! Form::label('Category', 'Category:') !!}
+	{!! Form::select('category', $categories, null, ['class' => 'form-control', 'placeholder' => 'Selecione uma Categoria']) !!}
 </div>
 
 <div class="form-group {{ $errors->first('book_cover','has-error') }}">
 	{!! $errors->first('book_cover','<div class="text-danger pull-right">:message</div>') !!}
-	{!! Form::label('Book Cover', 'Book Cover:') !!}
+	{!! Form::label('book_cover', 'Book Cover:') !!}
 	{!! Form::input('file', 'book_cover', null, ['class' => 'form-control']) !!}
 </div>
 
