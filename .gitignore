@@ -5,3 +5,4 @@ Homestead.json
 .env
 .git
 composer.lock
+/public/uploads/

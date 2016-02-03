@@ -9,6 +9,10 @@ use App\Http\Requests\BookRequest;
 use App\Http\Controllers\Controller;
 use App\Books;
 use App\Authors;
+use App\Category;
+use Image;
+use Session;
+
 
 
 class AdminBookController extends Controller
@@ -28,12 +32,34 @@ class AdminBookController extends Controller
         },$all_authors);
         $authors = $this->options;
 
-        return view('admin.books.create', compact('authors'));
+        $all_categories = Category::get(['name','id'])->all();
+        array_map(function($category){
+            $this->categories[$category->id] = $category->name;
+        },$all_categories);
+        $categories = $this->categories;
+        return view('admin.books.create', compact('authors','categories'));
     }
 
     public function store(BookRequest $request)
     {
-        return 'done';
+        $photo = $request->file('book_cover');
+        $img = Image::make($photo);
+        $destinationPath = base_path() . '/public/uploads/images/';
+        $img->save($destinationPath.$photo->getClientOriginalName());
+        $img->fit(260, 330);
+        $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
+
+        $books = new Books;
+        $books->title       = $request->title;
+        $books->author_id   = $request->author;
+        $books->category_id = $request->category;
+        $books->resume      = $request->resume;
+        $books->book_cover  = $photo->getClientOriginalName();
+
+        $books->save();
+
+        return redirect()->route('admin.books.index');
+
     }
 
     public function show($id)

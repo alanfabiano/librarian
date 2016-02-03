@@ -24,7 +24,11 @@ class BookRequest extends Request
     public function rules()
     {
         return [
-            'title'   => 'required|min: 8'
+            'title'   => 'required|min: 8',
+            'resume'     => 'required',
+            'book_cover' => 'required|mimes:jpeg',
+            'author'     => 'required',
+            'category'   => 'required'
         ];
     }
 }

@@ -5,7 +5,9 @@
 	<script type="text/javascript" src="{{ asset('/js/jquery.restfulizer.js') }}"></script>
 	<script type="text/javascript">
 		$(function($){
-			$(".destroy").restfulizer();
+			$(".destroy").restfulizer({
+				parse: true
+			});
 
 			$(".status").on('click',function(event){
 				event.preventDefault();
@@ -15,7 +17,7 @@
 					dataType: "json",
 					type:"POST",
 					url: selector.attr('href'),
-					data: {'_method' : 'PUT','type' : 'status'},
+					data: {'_method' : 'PUT','type' : 'status', '_token' : '{{ csrf_token() }}'},
 					success:function(p){
 						if(p.active == true)
 						{
@@ -74,7 +76,7 @@
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="{{ route('admin.books.edit',['id' => $b->id]) }}">{{ trans('actions.edit') }}</a></li>
-							<li><a class="destroy" data-method="DELETE" href="{{ route('admin.books.destroy', ['id' => $b->id ]) }}">{{ trans('actions.destroy') }}</a></li>
+							<li><a class="destroy" data-method="DELETE" href="{{ route('admin.books.destroy', ['id' => $b->id, '_token' => csrf_token() ]) }}">{{ trans('actions.destroy') }}</a></li>
 						</ul>
 					</div>
 				</td>
