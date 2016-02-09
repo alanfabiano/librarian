@@ -29,5 +29,14 @@ class Authors extends Model implements SluggableInterface
     public function books()
     {
         return $this->hasMany('App\Books','author_id');
-    }    
+    }
+
+    public static function get_form_list()
+    {
+        $author = Authors::all(['id','name']);
+        foreach($author as $k){
+            $authors[ $k->id ] = $k->name;
+        }
+        return $authors;
+    }
 }

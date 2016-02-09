@@ -11,9 +11,8 @@ class BooksTableSeeder extends Seeder
     
     public function run()
     {
-
-        Books::truncate();
-
+        Books::truncate();     
+        
         $Authors = Authors::all()->each(function($author) {
             foreach(range(1,10) as $v){
                 $category = Category::all(['id'])->random(1);

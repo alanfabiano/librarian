@@ -23,12 +23,26 @@ class BookRequest extends Request
      */
     public function rules()
     {
-        return [
-            'title'   => 'required|min: 8',
-            'resume'     => 'required',
-            'book_cover' => 'required|mimes:jpeg',
-            'author'     => 'required',
-            'category'   => 'required'
-        ];
+        if( $this->method() == 'POST')
+        {
+            return [
+                'title'   => 'required',
+                'resume'     => 'required',
+                'book_cover' => 'required|mimes:jpeg',
+                'author_id'     => 'required',
+                'category_id'   => 'required'
+            ];
+        }
+
+        if( $this->method() == 'PUT' )
+        {
+            return [
+                'title'   => 'required',
+                'resume'     => 'required',
+                'book_cover' => 'mimes:jpeg',
+                'author_id'     => 'required',
+                'category_id'   => 'required'
+            ];
+        }
     }
 }

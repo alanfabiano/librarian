@@ -30,4 +30,12 @@ class Category extends Model implements SluggableInterface
         return $this->hasMany('App\Books','category_id','id')->count();
     }
 
+    public static function get_form_list()
+    {
+        $category = Category::all(['name','id']);
+        foreach($category as $k){
+            $categories[ $k->id ] = $k->name;
+        }
+        return $categories;
+    }
 }

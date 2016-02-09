@@ -5,15 +5,15 @@
 </div>
 
 <div class="form-group {{ $errors->first('author','has-error') }}">
-	{!! $errors->first('author','<div class="text-danger pull-right">:message</div>') !!}
-	{!! Form::label('Author', 'Author:') !!}
-	{!! Form::select('author', $authors, null, ['class' => 'form-control', 'placeholder' => 'Selecione um Autor']) !!}
+	{!! $errors->first('author_id','<div class="text-danger pull-right">:message</div>') !!}
+	{!! Form::label('author_id', 'Author:') !!}
+	{!! Form::select('author_id', $authors, null, ['class' => 'form-control', 'placeholder' => 'Selecione um Autor']) !!}
 </div>
 
 <div class="form-group {{ $errors->first('category','has-error') }}">
-	{!! $errors->first('category','<div class="text-danger pull-right">:message</div>') !!}
-	{!! Form::label('category', 'Category:') !!}
-	{!! Form::select('category', $categories, null, ['class' => 'form-control', 'placeholder' => 'Selecione uma Categoria']) !!}
+	{!! $errors->first('category_id','<div class="text-danger pull-right">:message</div>') !!}
+	{!! Form::label('category_id', 'Category:') !!}
+	{!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Selecione uma Categoria']) !!}
 </div>
 
 <div class="form-group {{ $errors->first('book_cover','has-error') }}">

@@ -12,8 +12,7 @@ use App\Authors;
 use App\Category;
 use Image;
 use Session;
-
-
+use File;
 
 class AdminBookController extends Controller
 {
@@ -26,36 +25,32 @@ class AdminBookController extends Controller
 
     public function create()
     {
-        $all_authors = Authors::get(['name','id'])->all();
-        array_map(function($author){
-            $this->options[$author->id] = $author->name;
-        },$all_authors);
-        $authors = $this->options;
-
-        $all_categories = Category::get(['name','id'])->all();
-        array_map(function($category){
-            $this->categories[$category->id] = $category->name;
-        },$all_categories);
-        $categories = $this->categories;
+        
+        $categories = Category::get_form_list();
+        $authors = Authors::get_form_list();
         return view('admin.books.create', compact('authors','categories'));
     }
 
     public function store(BookRequest $request)
     {
         $photo = $request->file('book_cover');
-        $img = Image::make($photo);
-        $destinationPath = base_path() . '/public/uploads/images/';
-        $img->save($destinationPath.$photo->getClientOriginalName());
-        $img->fit(260, 330);
-        $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
+        $image_name = '';
+        if(count($request->files) > 0)
+        {
+            $img = Image::make($photo);
+            $destinationPath = base_path() . '/public/uploads/images/';
+            $img->save($destinationPath.$photo->getClientOriginalName());
+            $img->fit(260, 330);
+            $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
+            $image_name = $photo->getClientOriginalName();
+        }
 
         $books = new Books;
         $books->title       = $request->title;
-        $books->author_id   = $request->author;
-        $books->category_id = $request->category;
+        $books->author_id   = $request->author_id;
+        $books->category_id = $request->category_id;
         $books->resume      = $request->resume;
-        $books->book_cover  = $photo->getClientOriginalName();
-
+        $books->book_cover  = $image_name;
         $books->save();
 
         return redirect()->route('admin.books.index');
@@ -70,10 +65,41 @@ class AdminBookController extends Controller
     public function edit($id)
     {
         $book = Books::find($id);
-        return view('admin.books.edit', compact('book'));
+        $categories = Category::get_form_list();
+        $authors = Authors::get_form_list();
+        return view('admin.books.edit', compact('book','categories','authors'));
     }
 
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
+    {
+        
+        $books = Books::find($id);
+        $image_name = $books->book_cover;
+
+        if(count($request->files) > 0)
+        {
+            $photo = $request->file('book_cover');
+            $img = Image::make($photo);
+            $destinationPath = base_path() . '/public/uploads/images/';
+            $img->save($destinationPath.$photo->getClientOriginalName());
+            $img->fit(260, 330);
+            $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
+            File::delete(base_path() .'/public/uploads/images/'.$image_name);
+            File::delete(base_path() .'/public/uploads/images/thumb_'.$image_name);
+            $image_name = $photo->getClientOriginalName();
+            
+        }
+        $books->title       = $request->title;
+        $books->author_id   = $request->author_id;
+        $books->category_id = $request->category_id;
+        $books->resume      = $request->resume;
+        $books->book_cover  = $image_name;
+        $books->update();
+
+        return redirect()->route('admin.books.index');
+    }
+
+    public function update_status()
     {
         if($request->type == 'status')
         {
@@ -83,7 +109,6 @@ class AdminBookController extends Controller
             
             return response()->json(['active' => $active]);
         }
-
     }
 
     public function destroy($id)
