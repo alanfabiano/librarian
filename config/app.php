@@ -163,10 +163,8 @@ return [
         */
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
-
-
-
+        Antennaio\Clyde\ClydeServiceProvider::class
+        
     ],
 
     /*
@@ -214,9 +212,9 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
-        'Image'     => Intervention\Image\Facades\Image::class
-
-
+        
+        'ClydeUpload'=> Antennaio\Clyde\Facades\ClydeUpload::class,
+        'ClydeImage' => Antennaio\Clyde\Facades\ClydeImage::class
     ],
 
 ];

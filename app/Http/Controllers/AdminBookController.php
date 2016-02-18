@@ -10,9 +10,10 @@ use App\Http\Controllers\Controller;
 use App\Books;
 use App\Authors;
 use App\Category;
-use Image;
 use Session;
 use File;
+use Antennaio\Clyde\Facades\ClydeUpload;
+
 
 class AdminBookController extends Controller
 {
@@ -25,7 +26,6 @@ class AdminBookController extends Controller
 
     public function create()
     {
-        
         $categories = Category::get_form_list();
         $authors = Authors::get_form_list();
         return view('admin.books.create', compact('authors','categories'));
@@ -33,28 +33,17 @@ class AdminBookController extends Controller
 
     public function store(BookRequest $request)
     {
-        $photo = $request->file('book_cover');
-        $image_name = '';
-        if(count($request->files) > 0)
-        {
-            $img = Image::make($photo);
-            $destinationPath = base_path() . '/public/uploads/images/';
-            $img->save($destinationPath.$photo->getClientOriginalName());
-            $img->fit(260, 330);
-            $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
-            $image_name = $photo->getClientOriginalName();
-        }
-
         $books = new Books;
+
+        if ($request->hasFile('book_cover')) {
+            $books->book_cover = ClydeUpload::upload($request->file('book_cover'), $request->file('book_cover')->getClientOriginalName());
+        }
         $books->title       = $request->title;
         $books->author_id   = $request->author_id;
         $books->category_id = $request->category_id;
         $books->resume      = $request->resume;
-        $books->book_cover  = $image_name;
         $books->save();
-
         return redirect()->route('admin.books.index');
-
     }
 
     public function show($id)
@@ -75,45 +64,34 @@ class AdminBookController extends Controller
         
         $books = Books::find($id);
         $image_name = $books->book_cover;
-
-        if(count($request->files) > 0)
-        {
-            $photo = $request->file('book_cover');
-            $img = Image::make($photo);
-            $destinationPath = base_path() . '/public/uploads/images/';
-            $img->save($destinationPath.$photo->getClientOriginalName());
-            $img->fit(260, 330);
-            $img->save($destinationPath.'thumb_'.$photo->getClientOriginalName());
-            File::delete(base_path() .'/public/uploads/images/'.$image_name);
-            File::delete(base_path() .'/public/uploads/images/thumb_'.$image_name);
-            $image_name = $photo->getClientOriginalName();
-            
+        
+        if ($request->hasFile('book_cover')) {
+            $books->book_cover = ClydeUpload::upload($request->file('book_cover'), $request->file('book_cover')->getClientOriginalName());
+            ClydeUpload::exists($image_name) == true ? ClydeUpload::delete($image_name) : false;
         }
+
         $books->title       = $request->title;
         $books->author_id   = $request->author_id;
         $books->category_id = $request->category_id;
         $books->resume      = $request->resume;
-        $books->book_cover  = $image_name;
         $books->update();
 
         return redirect()->route('admin.books.index');
     }
 
-    public function update_status()
+    public function status($id)
     {
-        if($request->type == 'status')
-        {
-            $books = Books::find($id);
-            $active = $books->active == true ? false : true;
-            $books->update(['active' => $active]);
-            
-            return response()->json(['active' => $active]);
-        }
+        $books = Books::find($id);
+        $active = $books->active == true ? false : true;
+        $books->update(['active' => $active]);
+        return response()->json(['active' => $active]);
     }
 
     public function destroy($id)
     {
-        Books::find($id)->delete();
+        $book = Books::find($id);
+        ClydeUpload::exists($book->book_cover) == true ? ClydeUpload::delete($book->book_cover) : false;
+        $book->delete();
         return redirect()->route('admin.books.index');
     }
 

@@ -18,7 +18,12 @@
 					<div class="col-sm-3">
 						<p class="text-center">
 							<a href="{{ route('books.show', ['slug' => $book->slug]) }}">
-								<img style="width:50%" src="{{ $book->book_cover }}" title="{{ $book->title }}" />
+								@if(ClydeUpload::exists($book->book_cover))
+									<img style="width:50%" src="{{ ClydeImage::url($book->book_cover, 'book_list' ) }}" title="{{ $book->title }}" />
+								@else
+									<img style="width:50%" src="http://www.placehold.it/260x330/EFEFEF/AAAAAA&amp;text=Sem+Foto" title="{{ $book->title }}" />
+								@endif
+								
 							</a>
 						</p>
 						<p class="text-center"><strong><a class="lnk" href="{{ route('books.show',['slug' => $book->slug]) }}">{{ $book->title }}</a></strong></p>

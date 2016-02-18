@@ -34,7 +34,7 @@ $factory->define(App\Books::class, function (Faker\Generator $faker) {
         'title' => $faker->sentence,
         'active' => $faker->boolean,
         'resume' => implode("\r\n",$faker->paragraphs($nb = 15)),
-        'book_cover' => $faker->imageUrl(260, 330, 'city', true, 'Faker')
+        'book_cover' => 'default.jpg'
     ];
 });
 

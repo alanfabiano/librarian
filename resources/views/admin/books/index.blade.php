@@ -15,9 +15,9 @@
 				selector.html('<img src="/images/loading.gif">');
 				$.ajax({
 					dataType: "json",
-					type:"POST",
+					type:"GET",
 					url: selector.attr('href'),
-					data: {'_method' : 'PUT','type' : 'status', '_token' : '{{ csrf_token() }}'},
+					//data: {'_method' : 'GET','type' : 'status', '_token' : '{{ csrf_token() }}'},
 					success:function(p){
 						if(p.active == true)
 						{
@@ -61,9 +61,9 @@
 			<tr>
 				<td>
 					@if($b->active == true)
-						<a href="{{ route('admin.books.update',['id' => $b->id]) }}" class="btn btn-success status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+						<a href="{{ route('admin.books.status',['id' => $b->id]) }}" class="btn btn-success status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
 					@else
-						<a href="{{ route('admin.books.update',['id' => $b->id]) }}" class="btn btn-warning status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-close"></span></a>
+						<a href="{{ route('admin.books.status',['id' => $b->id]) }}" class="btn btn-warning status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-close"></span></a>
 					@endif
 				</td>
 				<td>{{ $b->id }}</td>

@@ -36,7 +36,7 @@ Route::group(['prefix' => 'authors'], function(){
 
 Route::group(['prefix' => 'admin'], function(){
 
-
+	Route::get('books/{id}/status', ['as' => 'admin.books.status', 'uses' => 'AdminBookController@status']);
 	Route::resource('books', 'AdminBookController', ['names' => [
     	'create'  => 'admin.books.create',
     	'edit'    => 'admin.books.edit',
