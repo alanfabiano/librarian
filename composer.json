@@ -9,7 +9,7 @@
         "laravel/framework": "5.2.*",
         "cviebrock/eloquent-sluggable": "^3.1",
         "laravelcollective/html": "^5.2",
-        "antennaio/laravel-clyde": "^0.0.4"
+        "antennaio/laravel-clyde": "^0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
