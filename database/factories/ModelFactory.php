@@ -33,8 +33,7 @@ $factory->define(App\Books::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'active' => $faker->boolean,
-        'resume' => implode("\r\n",$faker->paragraphs($nb = 15)),
-        'book_cover' => 'default.jpg'
+        'resume' => implode("\r\n",$faker->paragraphs($nb = 15))
     ];
 });
 

@@ -1,0 +1,12 @@
+.thumb{
+	background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    display: block;
+    line-height: 1.42857;
+    padding: 4px;
+    transition: border 0.2s ease-in-out 0s;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+	vertical-align:middle;
+}

@@ -39,7 +39,7 @@ class BookRequest extends Request
             return [
                 'title'   => 'required',
                 'resume'     => 'required',
-                'book_cover' => 'mimes:jpeg',
+                'book_cover' => 'mimes:jpeg,png',
                 'author_id'     => 'required',
                 'category_id'   => 'required'
             ];

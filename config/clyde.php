@@ -111,6 +111,15 @@ return [
             'w' => 260,
             'h' => 330,
             'fit' => 'crop'
+        ],
+        'book_adm_list' => [
+            'w' => 60,
+            'h' => 70,
+            'fit' => 'crop'
+        ],
+        'book_single' => [
+            'w' => 260,
+            'fit' => 'stretch'
         ]
     ]
 

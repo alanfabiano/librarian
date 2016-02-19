@@ -17,7 +17,6 @@
 					dataType: "json",
 					type:"GET",
 					url: selector.attr('href'),
-					//data: {'_method' : 'GET','type' : 'status', '_token' : '{{ csrf_token() }}'},
 					success:function(p){
 						if(p.active == true)
 						{
@@ -45,12 +44,11 @@
 
 	<h1>{{ trans('models.books') }}</h1>
 
-	<div id="retorno"></div>
-
 	<table class="table table-striped">
 
 		<tr>
 			<th>{{ trans('validation.attributes.status') }}</th>
+			<th width="100">{{ trans('validation.attributes.book_cover') }}</th>
 			<th>{{ trans('validation.attributes.id') }}</th>
 			<th>{{ trans('validation.attributes.title') }}</th>
 			<th>{{ trans('validation.attributes.slug') }}</th>
@@ -64,6 +62,13 @@
 						<a href="{{ route('admin.books.status',['id' => $b->id]) }}" class="btn btn-success status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-open"></span></a>
 					@else
 						<a href="{{ route('admin.books.status',['id' => $b->id]) }}" class="btn btn-warning status" data-id="{{ $b->id }}"><span class="glyphicon glyphicon-eye-close"></span></a>
+					@endif
+				</td>
+				<td align="center">
+					@if(ClydeUpload::exists($b->book_cover))
+						<img class="thumb" src="{{ ClydeImage::url($b->book_cover, 'book_adm_list' ) }}" title="{{ $b->title }}" />
+					@else
+						<img class="thumb" src="http://www.placehold.it/60x70/EFEFEF/AAAAAA&amp;text=Sem+Foto" title="{{ $b->title }}" />
 					@endif
 				</td>
 				<td>{{ $b->id }}</td>

@@ -9,7 +9,10 @@
 	<link href="{{ asset('/css/custom.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/flags.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/custom-dark.css') }}" rel="stylesheet">
-
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>

@@ -108,6 +108,7 @@ return [
     'attributes' => [
       'status'  => 'Status',
       'id'      => 'ID',
+      'book_cover' => 'Book Cover',
       'option'  => 'Option',
       'options' => 'Options',
       'title'   => 'Title',
