@@ -36,14 +36,14 @@ Route::group(['prefix' => 'authors'], function(){
 
 Route::group(['prefix' => 'admin'], function(){
 
+	// ROUTES OF BOOKS
 	Route::get('books/{id}/status', ['as' => 'admin.books.status', 'uses' => 'AdminBookController@status']);
-	Route::resource('books', 'AdminBookController', ['names' => [
-    	'create'  => 'admin.books.create',
-    	'edit'    => 'admin.books.edit',
-    	'update'  => 'admin.books.update',
-    	'destroy' => 'admin.books.destroy',
-    	'index'   => 'admin.books.index',
-    	'store'   => 'admin.books.store'
-    ]]);
+	Route::resource('books', 'AdminBookController');
+
+	// ROUTES OF AUTHORS
+	Route::get('authors/{id}/status', ['as' => 'admin.authors.status', 'uses' => 'AdminAuthorController@status']);
+	Route::resource('authors', 'AdminAuthorController');
+
+
 
 });

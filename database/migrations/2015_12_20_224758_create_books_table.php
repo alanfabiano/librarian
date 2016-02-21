@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->text('resume');
             $table->string('book_cover');
             $table->integer('author_id')->unsigned();
-            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

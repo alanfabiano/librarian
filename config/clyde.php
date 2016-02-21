@@ -107,6 +107,8 @@ return [
      |
      */
     'presets' => [
+
+        // BOOKS
         'book_list' => [
             'w' => 260,
             'h' => 330,
@@ -120,6 +122,13 @@ return [
         'book_single' => [
             'w' => 260,
             'fit' => 'stretch'
+        ],
+
+        // AUTHORS
+        'AuthorList' => [
+            'w' => 80,
+            'h' => 80,
+            'fit' => 'crop'
         ]
     ]
 
