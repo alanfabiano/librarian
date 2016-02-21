@@ -23,7 +23,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Authors::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'photo' => $faker->imageUrl(280, 320, 'people'),
         'active' => $faker->boolean,
         'biography' => $faker->paragraph($maxNbChars = 30)
     ];

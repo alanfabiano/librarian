@@ -4,19 +4,19 @@ return [
     
     'langs' => [
         'current' => [
-            'flag' => 'us',
-            'name' => 'English'
+            'flag' => 'es',
+            'name' => 'Español'
         ],
         'en' => [
-            'name' => 'English',
+            'name' => 'Inglés',
             'abbreviation' => 'en'
         ],
         'es' => [
-            'name' => 'Spanish',
+            'name' => 'Español',
             'abbreviation' => 'es'
         ],
         'br' => [
-            'name' => 'Portuguese',
+            'name' => 'Portugués',
             'abbreviation' => 'br'
         ],
     ],

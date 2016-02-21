@@ -114,6 +114,8 @@ return [
       'title'   => 'Title',
       'titles'  => 'Titles',
       'slug'    => 'Slug',
+      'name'    => 'Name',
+      'photo'   => 'Photo'
     ],
 
 ];
